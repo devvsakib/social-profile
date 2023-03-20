@@ -4,7 +4,7 @@ import SPButton from "../Common/SPButton";
 const HeroSection = () => {
   const social = ["twitter", "facebook", "gitHub", "linkedin", "instagram"]
   return (
-    <section className="bg-[url(../../../public/assets/BannerShape.png)] bg-cover bg-center mt-10 xxl:w-[85vw]">
+    <section className="bg-[url(/assets/BannerShape.png)] bg-cover bg-center mt-10 xxl:w-[85vw]">
       <div className="bg-white/5 rounded-lg  p-5 pb-10">
         <div className="text-center w-[]">
           <h1 className="font-sptitle tt text-4xl mt-5 break-words md:text-7xl">Share your Profile</h1>
