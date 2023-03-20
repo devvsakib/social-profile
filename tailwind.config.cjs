@@ -2,7 +2,11 @@
 module.exports = {
   content: ["./index.html", "./src/**/*.{htmljs,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    fontFamily: {
+      sptitle: [
+        'Jacques Francois Shadow',
+      ],
+    },
   },
   plugins: [],
 }

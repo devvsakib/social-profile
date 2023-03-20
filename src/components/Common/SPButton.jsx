@@ -1,8 +1,6 @@
-import React from 'react'
-
 const SPButton = () => {
   return (
-    <div>SPButton</div>
+    <button className='spbtn btn mt-5'>SHARE</button>
   )
 }
 

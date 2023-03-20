@@ -18,7 +18,7 @@
   -webkit-text-size-adjust: 100%;
   /* Font */
 
-  --sp-title: 'Jacques Francois Shadow', cursive;
+  --sp-title: 'Jacques Francois Shadow';
   --sp-title-size: 100px;
 
 
@@ -52,4 +52,11 @@ main{
   flex: 1;
   max-width: 1280px;
   margin-inline: auto;
+}
+.spbtn {
+  background: var(--sp-btn);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.53);
+}
+.btn{
+  @apply px-8 py-2 rounded-lg font-semibold md:text-xl text-lg 
 }
