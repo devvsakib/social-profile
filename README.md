@@ -1,3 +1,5 @@
 # <p align="center">SocialProfile</p>
 
-<img src="./public/assets/Logo.png" alt="SocialProfile" width="200" margin="auto"/>
+<p align="center">
+<img src="./public/assets/Logo.png" alt="SocialProfile" width="200"/>
+</p>
