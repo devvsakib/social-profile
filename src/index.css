@@ -31,7 +31,7 @@
   --input-bg: rgba(32, 92, 182, 0.3);
   --navbar-box-shadow: 0px 4px 50px 20px rgba(0, 0, 0, 0.58);
   --sp-btn: linear-gradient(263.22deg, rgba(9, 137, 255, 0.46) -48.17%, rgba(68, 2, 134, 0.2116) 84.62%);
-  
+
   /* Light Mode */
   --lighbg-color: #FFEBE0;
   --text-color: #1E0101;
@@ -39,24 +39,31 @@
   --navbg: #F3E8FF;
 }
 
-body{
+body {
   background-color: var(--darkbg-color);
 }
 
-.App{
+.App {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
-main{
+
+main {
   flex: 1;
   max-width: 1280px;
   margin-inline: auto;
 }
+
 .spbtn {
   background: var(--sp-btn);
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.53);
 }
-.btn{
-  @apply px-8 py-2 rounded-lg font-semibold md:text-xl text-lg 
+
+.btn {
+  @apply px-8 py-2 rounded-lg font-semibold md:text-xl text-lg
+}
+
+.cardbg {
+  background: var(--shapecard-bg);
 }

@@ -1,0 +1,107 @@
+[
+    {
+        "fullname": "DevvSakib",
+        "username": "devvsakib",
+        "profile_picture_url": "https://github.com/devvsakib.png",
+        "social_media_links": {
+            "twitter": "https://twitter.com/devvsakib",
+            "instagram": "https://www.instagram.com/devvsakib",
+            "linkedin": "https://www.linkedin.com/in/devvsakib",
+            "facebook": "https://www.facebook.com/devvsakib",
+            "github": "https://github.com/devvsakib"
+        }
+    },
+    {
+        "fullname": "Karthik Nadar",
+        "username": "karthiknadar1204",
+        "profile_picture_url": "https://github.com/karthiknadar1204.png",
+        "social_media_links": {
+            "twitter": "https://twitter.com/karthiknadar1204",
+            "instagram": "https://www.instagram.com/karthiknadar1204/",
+            "linkedin": "https://www.linkedin.com/in/karthiknadar1204/",
+            "facebook": "https://www.facebook.com/karthiknadar1204",
+            "github": "https://github.com/karthiknadar1204"
+        }
+    },
+    {
+        "fullname": "Kris",
+        "username": "otnansirk",
+        "profile_picture_url": "https://github.com/otnansirk.png",
+        "social_media_links": {
+            "twitter": "https://twitter.com/otnansirk",
+            "instagram": "https://www.instagram.com/otnansirk/",
+            "linkedin": "https://www.linkedin.com/in/otnansirk/",
+            "facebook": "https://www.facebook.com/otnansirk",
+            "github": "https://github.com/otnansirk"
+        }
+    },
+    {
+        "fullname": "Ryan Lee",
+        "username": "ryanlee82",
+        "profile_picture_url": "https://randomuser.me/api/portraits/men/5.jpg",
+        "social_media_links": {
+            "twitter": "https://twitter.com/ryanlee82",
+            "instagram": "https://www.instagram.com/ryanlee82/",
+            "linkedin": "https://www.linkedin.com/in/ryanlee82/",
+            "github": "https://github.com/ryanlee82"
+        }
+    },
+    {
+        "fullname": "Jessica Adams",
+        "username": "jessicaadams22",
+        "profile_picture_url": "https://randomuser.me/api/portraits/women/87.jpg",
+        "social_media_links": {
+            "twitter": "https://twitter.com/jessicaadams22",
+            "instagram": "https://www.instagram.com/jessicaadams22/",
+            "linkedin": "https://www.linkedin.com/in/jessicaadams22/",
+            "github": "https://github.com/ryanlee82"
+        }
+    },
+    {
+        "fullname": "David Rodriguez",
+        "username": "davidrod75",
+        "profile_picture_url": "https://randomuser.me/api/portraits/men/79.jpg",
+        "social_media_links": {
+            "twitter": "https://twitter.com/davidrod75",
+            "instagram": "https://www.instagram.com/davidrod75/",
+            "linkedin": "https://www.linkedin.com/in/davidrod75/",
+            "facebook": "https://www.facebook.com/davidrod75",
+            "github": "https://github.com/ryanlee82"
+        }
+    },
+    {
+        "fullname": "Emily Brown",
+        "username": "emilybrown90",
+        "profile_picture_url": "https://randomuser.me/api/portraits/women/46.jpg",
+        "social_media_links": {
+            "twitter": "https://twitter.com/emilybrown90",
+            "instagram": "https://www.instagram.com/davidrod75/",
+            "linkedin": "https://www.linkedin.com/in/davidrod75/",
+            "facebook": "https://www.facebook.com/davidrod75",
+            "github": "https://github.com/ryanlee82"
+        }
+    },
+    {
+        "fullname": "Emily Lee",
+        "username": "emilylee23",
+        "profile_picture_url": "https://randomuser.me/api/portraits/women/10.jpg",
+        "social_media_links": {
+            "twitter": "https://twitter.com/emilylee23",
+            "instagram": "https://www.instagram.com/emilylee23/",
+            "linkedin": "https://www.linkedin.com/in/emilylee23/",
+            "facebook": "https://www.facebook.com/emilylee23",
+            "github": "https://github.com/emilylee23"
+        }
+    },
+    {
+        "fullname": "Andrew Martinez",
+        "username": "andrewmartinez32",
+        "profile_picture_url": "https://randomuser.me/api/portraits/men/26.jpg",
+        "social_media_links": {
+            "twitter": "https://twitter.com/andrewmartinez32",
+            "instagram": "https://www.instagram.com/andrewmartinez32/",
+            "linkedin": "https://www.linkedin.com/in/andrewmartinez32/",
+            "github": "https://github.com/andrewmartinez32"
+        }
+    }
+]
