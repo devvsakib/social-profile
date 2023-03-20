@@ -20,11 +20,9 @@ const Header = () => {
     if (!theme) {
       document.body.style.backgroundColor = "#FFEBE0"
       document.body.style.color = "#16012B"
-      document.querySelector(".bannerCard").style.boxShadow = "0px 6px 12px #A68686"
       document.body.style.transitionDuration = "1s"
     } else {
       document.body.style.backgroundColor = "#16012B"
-      document.querySelector(".bannerCard").style.boxShadow = "0px 6px 5px #000000"
       document.body.style.color = "#FFEBE0"
     }
   }, [theme])
