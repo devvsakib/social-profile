@@ -5,7 +5,7 @@ const Home = () => {
     return (
         <section className="">
             <HeroSection />
-            <section className="my-32 bg-[url(/TopProfileShape.png)] bg-center bg-cover">
+            <section className="my-32 bg-[url(../../../public/assets/TopProfileShape.png)] bg-center bg-cover">
                 <div>
                     <h2 className="text-xl font-semibold">Top Profiles</h2>
                 </div>
@@ -21,7 +21,7 @@ const Home = () => {
                     }
                 </div>
             </section>
-            <section className="my-32 bg-[url(/ProfileShape.png)] bg-center bg-cover">
+            <section className="my-32 bg-[url(../../../public/assets/ProfileShape.png)] bg-center bg-cover">
                 <div>
                     <h2 className="text-xl font-semibold">Profiles</h2>
                 </div>
