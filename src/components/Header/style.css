@@ -1,3 +1,8 @@
-.navbarShadow{
+.navbarShadow {
     box-shadow: var(--navbar-box-shadow);
+}
+
+.spmobile-nav {
+    background: var(--shapecard-bg);
+    box-shadow: 0px 6px 5px #3A0E4F;
 }
