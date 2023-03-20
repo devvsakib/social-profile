@@ -2,7 +2,7 @@
 
 <br/>
 
-<img src="./public/assets/BannerShape.png" />
+<img src="./public/assets/socialprofiles.png" />
 
 <br/>
 
