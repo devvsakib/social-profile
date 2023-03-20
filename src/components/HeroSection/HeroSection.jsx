@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import SPButton from "../Common/SPButton";
 
 const HeroSection = () => {
@@ -14,7 +15,9 @@ const HeroSection = () => {
               ))
             }
           </div>
-          <SPButton />
+          <Link to={"/login"}>
+            <SPButton />
+          </Link>
         </div>
       </div>
     </section>
