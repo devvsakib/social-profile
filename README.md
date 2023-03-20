@@ -9,3 +9,13 @@
 SocialProfile is a social platform that allows users to create a profile and share their all social media links in one place. Anyone can view your profile. You can also view other users' profiles. 
 
 <br/>
+
+## Features
+> will be added soon
+
++ Creating profile
++ Viewing profile
++ Viewing other users' profile
++ Updating profile
++ Deleting profile
++ Authentication
