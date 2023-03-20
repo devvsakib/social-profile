@@ -21,7 +21,7 @@ const Home = () => {
                     }
                 </div>
             </section>
-            <section className="my-32 bg-[url(assets/TopProfileShape.png)] bg-center bg-cover">
+            <section className="my-32 bg-[url(assets/ProfileShape.png)] bg-center bg-cover">
                 <div>
                     <h2 className="text-xl font-semibold">Profiles</h2>
                 </div>

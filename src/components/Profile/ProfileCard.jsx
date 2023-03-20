@@ -12,7 +12,7 @@ const ProfileCard = ({ user, id }) => {
             <Link>View</Link>
           </button>
         </div>
-        <div className="flex justify-center text-3xl gap-5 mt-10">
+        <div className="flex justify-center text-2xl gap-5 mt-10">
           <a target={'_blank'} className="hover:text-[#1E0101] transition-all duration-200 ease-linear" href={user.social_media_links.twitter}><FaTwitter /></a>
           <a target={'_blank'} className="hover:text-[#1E0101] transition-all duration-200 ease-linear" href={user.social_media_links.facebook}><FaFacebook /></a>
           <a target={'_blank'} className="hover:text-[#1E0101] transition-all duration-200 ease-linear" href={user.social_media_links.github}><FaGithub /></a>
