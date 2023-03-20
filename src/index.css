@@ -1,0 +1,36 @@
+:root {
+  font-family: 'Inter', sans-serif, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  /* Font */
+
+  --sp-title: 'Jacques Francois Shadow', cursive;
+  --sp-title-size: 100px;
+
+
+
+  /* colors */
+  /* Dark Mode */
+  --bg-color: #16012B;
+  --text-color: #FFEBE0;
+  --shapecard-bg: rgba(255, 249, 249, 0.05);
+  --input-bg: rgba(32, 92, 182, 0.3);
+  --navbar-box-shadow: 0px 4px 78px 37px rgba(0, 0, 0, 0.58);
+  --sp-btn: linear-gradient(263.22deg, rgba(9, 137, 255, 0.46) -48.17%, rgba(68, 2, 134, 0.2116) 84.62%);
+  
+  /* Light Mode */
+  --bg-color: #FFEBE0;
+  --text-color: #1E0101;
+  --card-bg: rgba(39, 16, 62, 0.11);
+  --navbg: #F3E8FF;
+}
