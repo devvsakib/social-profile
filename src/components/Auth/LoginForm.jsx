@@ -15,7 +15,7 @@ const LoginForm = () => {
             </button>
             <div className="mt-5">
               <p>New to SocialProfile?</p>
-              <Link to="/regiter" className="text-blue-500">Register</Link>
+              <Link to="/register" className="text-blue-500">Register</Link>
             </div>
           </div>
         </div>
