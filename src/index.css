@@ -99,3 +99,11 @@ main {
 .inputBG{
   background-color: var(--input-bg);
 }
+.registerFormBG{
+  position: absolute;
+  transform: translateY(100px);
+  left: 0;
+  height: 500px;
+  width: 100vw;
+  ;
+}
