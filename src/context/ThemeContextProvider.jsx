@@ -11,11 +11,14 @@ const ThemeContextProvider = (props) => {
   };
 
   const toggleThemeMode = () => {
+    
     if (isDarkTheme) {
       document.body.style.backgroundColor = "#16012B"
+      document.querySelector(".bannerCard").style.boxShadow = "0px 4px 50px 20px rgba(0, 0, 0, 0.40)"
       document.body.style.color = "#FFEBE0"
     } else {
       document.body.style.backgroundColor = "#FFEBE0"
+      document.querySelector(".bannerCard").style.boxShadow = "0px 4px 50px 20px rgba(0, 0, 0, 0.10)"
       document.body.style.color = "#16012B"
       document.body.style.transitionDuration = "1s"
     }
