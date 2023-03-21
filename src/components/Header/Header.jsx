@@ -18,7 +18,7 @@ const Header = () => {
   }, [width])
 
   return (
-    <header className={`${isDarkTheme ? 'bg-[#F3E8FF]' : ''} shadow-xl navbarShadow py-2`}>
+    <header className={`${isDarkTheme ? 'bg-[#F3E8FF]' : ''} sticky shadow-xl navbarShadow py-2`}>
       <div className="flex justify-between max-w-[1280px] mx-auto px-10">
         <div>
           <Link to={"/"}>

@@ -9,7 +9,7 @@ const Home = () => {
                 <div>
                     <h2 className="text-xl font-semibold">Top Profiles</h2>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-20 mt-10">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10">
                     {
                         users ? users.slice(0,3).map((user, idx)=>(
                             <ProfileCard 
@@ -25,7 +25,7 @@ const Home = () => {
                 <div>
                     <h2 className="text-xl font-semibold">Profiles</h2>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-20 mt-10">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10">
                     {
                         users ? users.map((user, idx)=>(
                             <ProfileCard 

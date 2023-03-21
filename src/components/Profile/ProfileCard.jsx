@@ -1,9 +1,13 @@
+import { useContext } from "react"
 import { FaTwitter, FaLinkedin, FaFacebook, FaInstagram, FaGithub } from "react-icons/fa"
 import { Link } from "react-router-dom"
+import { ThemeContext } from "../../context/ThemeContextProvider"
 
 const ProfileCard = ({ user, id }) => {
+  const { isDarkTheme } = useContext(ThemeContext)
+
   return (
-    <div key={id} className="w-6/6 overflow-hidden rounded-lg cardbg">
+    <div key={id} className={`overflow-hidden rounded-xl ${!isDarkTheme ? "cardbg" : "cardbgDark"}`}>
       <img className="h-60 object-cover w-full" src={user.profile_picture_url} alt="" />
       <div className="px-3 pb-6">
         <div className="flex justify-between my-5">
