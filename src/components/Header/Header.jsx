@@ -1,14 +1,15 @@
 import { Link } from "react-router-dom";
 import "./style.css"
 import { FaBars, FaMoon, FaSun } from "react-icons/fa"
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import useWindowSize from "../../hooks/useWindowSize";
+import { ThemeContext } from "../../context/ThemeContextProvider";
 
 const Header = () => {
   const menu = [{ name: "Home", path: '/' }, { name: "About", path: '/about' }, { name: "Login", path: '/login' }]
-  const [theme, setTheme] = useState(true);
   const [openMenu, setOpenMenu] = useState(false);
   const { width } = useWindowSize()
+  const { isDarkTheme, toggleTheme } = useContext(ThemeContext);
 
   useEffect(() => {
     if (width > 768 && openMenu) {
@@ -16,24 +17,12 @@ const Header = () => {
     }
   }, [width])
 
-  useEffect(() => {
-    if (!theme) {
-      document.body.style.backgroundColor = "#FFEBE0"
-      document.body.style.color = "#16012B"
-      document.body.style.transitionDuration = "1s"
-    } else {
-      document.body.style.backgroundColor = "#16012B"
-      document.body.style.color = "#FFEBE0"
-    }
-  }, [theme])
-
-
   return (
-    <header className="shadow-xl navbarShadow py-5">
+    <header className={`${isDarkTheme ? 'light-theme' : ''} shadow-xl navbarShadow py-5`}>
       <div className="flex justify-between max-w-[1280px] mx-auto px-10">
         <div>
           <Link to={"/"}>
-            <img className="w-36" src="assets/Logo.png" />
+            <img className="w-36" src={isDarkTheme ? "assets/LogoDark.png" : "assets/Logo.png"} />
           </Link>
         </div>
         {
@@ -50,9 +39,9 @@ const Header = () => {
                   ))
                 }
               </ul>
-              <button onClick={() => setTheme(!theme)} className="p-3">
+              <button onClick={toggleTheme} className="p-3">
                 {
-                  theme ? <FaMoon /> : <FaSun />
+                  isDarkTheme ? <FaMoon /> : <FaSun />
                 }
               </button>
             </nav>
@@ -71,9 +60,9 @@ const Header = () => {
               ))
             }
           </ul>
-          <button onClick={() => setTheme(!theme)} className="p-3">
+          <button onClick={toggleTheme} className="p-3">
             {
-              !theme ? <FaSun /> : <FaMoon />
+              !isDarkTheme ? <FaSun /> : <FaMoon />
             }
           </button>
         </nav>

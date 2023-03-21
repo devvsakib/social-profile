@@ -33,12 +33,15 @@
   --sp-btn: linear-gradient(263.22deg, rgba(9, 137, 255, 0.46) -48.17%, rgba(68, 2, 134, 0.2116) 84.62%);
 
   /* Light Mode */
+  --card-bg: rgba(39, 16, 62, 0.11);
   --lighbg-color: #FFEBE0;
   --text-color: #1E0101;
-  --card-bg: rgba(39, 16, 62, 0.11);
   --navbg: #F3E8FF;
 }
-
+.light-theme {
+  --lighbg-color: #FFEBE0;
+  --text-color: #1E0101;
+}
 body {
   background-color: var(--darkbg-color);
 }
