@@ -16,7 +16,7 @@ const HeroSection = () => {
             }
           </div>
           <Link to={"/login"}>
-            <SPButton />
+            <SPButton content="SHARE" />
           </Link>
         </div>
       </div>

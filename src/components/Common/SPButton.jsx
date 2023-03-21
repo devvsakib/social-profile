@@ -1,6 +1,6 @@
-const SPButton = () => {
+const SPButton = ({content}) => {
   return (
-    <button className='spbtn btn mt-5'>SHARE</button>
+    <button className='spbtn btn mt-5'>{content}</button>
   )
 }
 
