@@ -8,7 +8,7 @@ const HeroSection = () => {
       <div className="rounded-lg  p-5 pb-10 bnrcard-shadow bannerCard">
         <div className="text-center w-[]">
           <h1 className="font-sptitle tt text-4xl mt-5 break-words md:text-7xl">Share your Profile</h1>
-          <div className="grid grid-cols-3 capitalize place-items-center justify-center my-8 gap-5">
+          <div className="grid grid-cols-3 md:grid-cols-5 capitalize place-items-center justify-center my-8 gap-5">
             {
               social.map((item, idx) => (
                 <p key={idx}>{item}</p>
