@@ -107,3 +107,23 @@ main {
   width: 100vw;
   ;
 }
+
+.sp-ques{
+  @apply absolute bg-white text-black w-5 h-5 text-sm font-semibold rounded-full -right-2 border-black border-2 -top-2
+}
+.sp-ques-show{
+  @apply bg-white text-black font-semibold rounded-lg absolute text-sm border-black border-2 px-2 -right-5 -top-9
+}
+.sp-ques-show::after{
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-top: 20px solid transparent;
+  border-right: 20px solid #ffffff;
+  bottom: -2px;
+  right: 9px;
+  z-index: 10;
+  transform: rotate(45deg);
+}

@@ -6,6 +6,7 @@ import SPButton from "../Common/SPButton"
 
 const RegisterForm = () => {
   const { isDarkTheme } = useContext(ThemeContext)
+  const [show, setShow] = useState(true)
   const [user, setUser] = useState({
     fullname: "",
     username: "",
@@ -36,13 +37,17 @@ const RegisterForm = () => {
         [name]: value,
       }));
     }
+    if(show === false) setShow(!show)
   };
 
 
   console.log(user);
   const submitProfile = e => {
     e.preventDefault()
-    // alert("Profile Submitted "+ user.fullname)
+  }
+
+  const showToolTip = () => {
+    setShow(!show)
   }
 
 
@@ -59,7 +64,13 @@ const RegisterForm = () => {
                   <input type="text" name="fullname" className="sp-inp" placeholder="Full Name" onChange={e => getUserData(e)} />
                   <input type="text" name="username" className="sp-inp" placeholder="Username" onChange={e => getUserData(e)} />
                   <input type="password" name="password" className="sp-inp" placeholder="Password" onChange={e => getUserData(e)} />
+                  <div className="relative">
+                  <p className={`sp-ques-show ${show ? "hidden" : ""}`}>Copy URL From Any Social Media</p>
                   <input type="text" name="profile_picture_url" className="sp-inp" placeholder="Profile Picture URL" onChange={e => getUserData(e)} />
+                  <button className="sp-ques" 
+                  onClick={showToolTip}
+                  >?</button>
+                  </div>
                 </div>
                 <div className="mt-6">
                   <h2 className="text-xl font-semibold text-left mb-3">Social Links:</h2>
