@@ -37,11 +37,9 @@ const RegisterForm = () => {
         [name]: value,
       }));
     }
-    if(show === false) setShow(!show)
+    if (show === false) setShow(!show)
   };
 
-
-  console.log(user);
   const submitProfile = e => {
     e.preventDefault()
   }
@@ -61,25 +59,25 @@ const RegisterForm = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-items-center  md:justify-items-end gap-5">
               <div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <input type="text" name="fullname" className="sp-inp" placeholder="Full Name" onChange={e => getUserData(e)} />
-                  <input type="text" name="username" className="sp-inp" placeholder="Username" onChange={e => getUserData(e)} />
-                  <input type="password" name="password" className="sp-inp" placeholder="Password" onChange={e => getUserData(e)} />
+                  <input type="text" name="fullname" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} `} placeholder="Full Name" onChange={e => getUserData(e)} />
+                  <input type="text" name="username" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} `} placeholder="Username" onChange={e => getUserData(e)} />
+                  <input type="password" name="password" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} `} placeholder="Password" onChange={e => getUserData(e)} />
                   <div className="relative">
-                  <p className={`sp-ques-show ${show ? "hidden" : ""}`}>Copy URL From Any Social Media</p>
-                  <input type="text" name="profile_picture_url" className="sp-inp" placeholder="Profile Picture URL" onChange={e => getUserData(e)} />
-                  <button className="sp-ques" 
-                  onClick={showToolTip}
-                  >?</button>
+                    <p className={`sp-ques-show ${show ? "hidden" : ""}`}>Copy URL From Any Social Media</p>
+                    <input type="text" name="profile_picture_url" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} `} placeholder="Profile Picture URL" onChange={e => getUserData(e)} />
+                    <button className="sp-ques"
+                      onClick={showToolTip}
+                    >?</button>
                   </div>
                 </div>
                 <div className="mt-6">
                   <h2 className="text-xl font-semibold text-left mb-3">Social Links:</h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <input type="text" name="github" className="sp-inp" placeholder="GitHub" onChange={e => getUserData(e)} />
-                    <input type="text" name="twitter" className="sp-inp" placeholder="Twitter" onChange={e => getUserData(e)} />
-                    <input type="text" name="instagram" className="sp-inp" placeholder="Instagram" onChange={e => getUserData(e)} />
-                    <input type="text" name="facebook" className="sp-inp" placeholder="Facebook" onChange={e => getUserData(e)} />
-                    <input type="text" name="linkedin" className="sp-inp" placeholder="LinkedIn" onChange={e => getUserData(e)} />
+                    <input type="text" name="github" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} `} placeholder="GitHub" onChange={e => getUserData(e)} />
+                    <input type="text" name="twitter" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} `} placeholder="Twitter" onChange={e => getUserData(e)} />
+                    <input type="text" name="instagram" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} `} placeholder="Instagram" onChange={e => getUserData(e)} />
+                    <input type="text" name="facebook" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} `} placeholder="Facebook" onChange={e => getUserData(e)} />
+                    <input type="text" name="linkedin" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} `} placeholder="LinkedIn" onChange={e => getUserData(e)} />
                   </div>
                 </div>
               </div>

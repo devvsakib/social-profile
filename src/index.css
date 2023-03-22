@@ -69,8 +69,11 @@ main {
 .btn {
   @apply px-8 py-2 rounded-lg font-semibold md:text-xl text-lg
 }
-.sp-inp {
-  @apply inputBG outline-none px-5 py-3 rounded-lg placeholder:text-[#FFEBE0] placeholder:font-semibold placeholder:tracking-wider
+.sp-inpDark {
+  @apply inputBG outline-none px-5 py-3 rounded-lg placeholder:text-[#FFEBE0] bg-white placeholder:font-semibold placeholder:tracking-wider
+}
+.sp-inpLight {
+  @apply outline-none px-5 py-3 rounded-lg placeholder:text-[#1E0101] bg-white placeholder:font-semibold placeholder:tracking-wider
 }
 
 .cardbg {
