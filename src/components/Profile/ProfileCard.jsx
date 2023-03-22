@@ -17,11 +17,21 @@ const ProfileCard = ({ user, id }) => {
           </button>
         </div>
         <div className="flex justify-center text-2xl gap-5 mt-10">
-          <a target={'_blank'} className="hover:text-[#1E0101] transition-all duration-200 ease-linear" href={user.social_media_links.twitter}><FaTwitter /></a>
-          <a target={'_blank'} className="hover:text-[#1E0101] transition-all duration-200 ease-linear" href={user.social_media_links.facebook}><FaFacebook /></a>
-          <a target={'_blank'} className="hover:text-[#1E0101] transition-all duration-200 ease-linear" href={user.social_media_links.github}><FaGithub /></a>
-          <a target={'_blank'} className="hover:text-[#1E0101] transition-all duration-200 ease-linear" href={user.social_media_links.instagram}><FaInstagram /></a>
-          <a target={'_blank'} className="hover:text-[#1E0101] transition-all duration-200 ease-linear" href={user.social_media_links.linkedin}><FaLinkedin /></a>
+          <a target={'_blank'} className="hover:text-[#1E0101] transition-all duration-200 ease-linear" href={user.social_media_links?.twitter}>{
+            user.social_media_links?.twitter ? <FaTwitter /> : null
+          }</a>
+          <a target={'_blank'} className="hover:text-[#1E0101] transition-all duration-200 ease-linear" href={user.social_media_links?.facebook}>{
+            user.social_media_links?.facebook ? <FaFacebook /> : null
+          }</a>
+          <a target={'_blank'} className="hover:text-[#1E0101] transition-all duration-200 ease-linear" href={user.social_media_links?.github}>{
+            user.social_media_links?.github ? <FaGithub /> : null
+          }</a>
+          <a target={'_blank'} className="hover:text-[#1E0101] transition-all duration-200 ease-linear" href={user.social_media_links?.instagram}>{
+            user.social_media_links?.instagram ? <FaInstagram /> : null
+          }</a>
+          <a target={'_blank'} className="hover:text-[#1E0101] transition-all duration-200 ease-linear" href={user.social_media_links?.linkedin}>{
+            user.social_media_links?.linkedin ? <FaLinkedin /> : null
+          }</a>
         </div>
       </div>
     </div>
