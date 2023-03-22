@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { FaTwitter, FaLinkedin, FaFacebook, FaInstagram, FaGithub } from "react-icons/fa"
 import users from "../userdata.json"
 import Layout from "../components"
+import ProfileSocialList from "../components/Common/ProfileSocialList"
 
 const Profile = () => {
     const { name } = useParams()
@@ -24,50 +24,9 @@ const Profile = () => {
                         <h1 className="text-2xl font-bold">{user.fullname}</h1>
                         <p className="text-gray-500">{user.username}</p>
                     </div>
-                    <div className="flex flex-col text-2xl gap-5 mt-10">
-
-                        {
-                            user.social_media_links?.twitter && <a target={'_blank'} className="hover:text-[#2affa6] transition-all duration-200 bg-cover bg-center py-5 bg-[url(/assets/BannerShape.png)] ease-linear" href={user.social_media_links?.twitter}>
-                                <div className="w-2/4 bg-white/10 flex items-center justify-between gap-5 px-10 py-5 rounded-md mx-auto">
-                                    <FaTwitter />
-                                    <p>Twitter</p>
-                                </div>
-                            </a>
-                        }
-                        {
-                            user.social_media_links?.github && <a target={'_blank'} className="hover:text-[#2affa6] transition-all duration-200 bg-cover bg-center py-5 bg-[url(/assets/BannerShape.png)] ease-linear" href={user.social_media_links?.github}>
-                                <div className="w-2/4 bg-white/10 flex items-center justify-between gap-5 px-10 py-5 rounded-md mx-auto">
-                                    <FaGithub />
-                                    <p>GitHub</p>
-                                </div>
-                            </a>
-                        }
-                        {
-                            user.social_media_links?.instagram && <a target={'_blank'} className="hover:text-[#2affa6] transition-all duration-200 bg-cover bg-center py-5 bg-[url(/assets/BannerShape.png)] ease-linear" href={user.social_media_links?.instagram}>
-                                <div className="w-2/4 bg-white/10 flex items-center justify-between gap-5 px-10 py-5 rounded-md mx-auto">
-                                    <FaInstagram />
-                                    <p>Instagram</p>
-                                </div>
-                            </a>
-                        }
-                        {
-                            user.social_media_links?.facebook && <a target={'_blank'} className="hover:text-[#2affa6] transition-all duration-200 bg-cover bg-center py-5 bg-[url(/assets/BannerShape.png)] ease-linear" href={user.social_media_links?.facebook}>
-                                <div className="w-2/4 bg-white/10 flex items-center justify-between gap-5 px-10 py-5 rounded-md mx-auto">
-                                    <FaFacebook />
-                                    <p>Facebook</p>
-                                </div>
-                            </a>
-                        }
-                        {
-                            user.social_media_links?.linkedin &&
-                            <a target={'_blank'} className="hover:text-[#2affa6] transition-bg-cover bg-center py-5 all duration-200 bg-[url(/assets/BannerShape.png)] ease-linear" href={user.social_media_links?.linkedin}>
-                                <div className="w-2/4 bg-white/3010lex items-center justify-between gap-5 px-10 py-5 rounded-md mx-auto">
-                                    <FaLinkedin />
-                                    <p>Linkedin</p>
-                                </div>
-                            </a>
-                        }
-                    </div>
+                    <ProfileSocialList
+                        social={user}
+                    />
 
                 </div>
             </section>
