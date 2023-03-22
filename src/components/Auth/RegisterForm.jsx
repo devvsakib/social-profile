@@ -52,11 +52,11 @@ const RegisterForm = () => {
                 <div className="mt-6">
                   <h2 className="text-xl font-semibold text-left mb-3">Social Links:</h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <input type="text" name="github" className="sp-inp" placeholder="GitHub"  onChange={e => getUserData(e)} />
-                    <input type="text" name="twitter" className="sp-inp" placeholder="Twitter"  onChange={e => getUserData(e)} />
-                    <input type="text" name="instagram" className="sp-inp" placeholder="Instagram"  onChange={e => getUserData(e)} />
-                    <input type="text" name="facebook" className="sp-inp" placeholder="Facebook"  onChange={e => getUserData(e)} />
-                    <input type="text" name="linkedin" className="sp-inp" placeholder="LinkedIn"  onChange={e => getUserData(e)} />
+                    <input type="text" name="github" className="sp-inp" placeholder="GitHub" onChange={e => getUserData(e)} />
+                    <input type="text" name="twitter" className="sp-inp" placeholder="Twitter" onChange={e => getUserData(e)} />
+                    <input type="text" name="instagram" className="sp-inp" placeholder="Instagram" onChange={e => getUserData(e)} />
+                    <input type="text" name="facebook" className="sp-inp" placeholder="Facebook" onChange={e => getUserData(e)} />
+                    <input type="text" name="linkedin" className="sp-inp" placeholder="LinkedIn" onChange={e => getUserData(e)} />
                   </div>
                 </div>
               </div>

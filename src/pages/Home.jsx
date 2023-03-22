@@ -1,9 +1,10 @@
 import HeroSection from "../components/HeroSection/HeroSection.jsx"
 import ProfileCard from "../components/Profile/ProfileCard.jsx"
 import users from "../userdata.json"
+import Layout from "../components";
 const Home = () => {
     return (
-        <section className="">
+        <Layout>
             <HeroSection />
             <section className="my-32 bg-center bg-cover">
                 <div className="bg-[url(/assets/TopProfileShape.png)] bg-no-repeat bg-cover tpProfileBG"></div>
@@ -39,7 +40,7 @@ const Home = () => {
                     }
                 </div>
             </section>
-        </section>
+        </Layout>
     )
 }
 
