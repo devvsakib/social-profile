@@ -1,9 +1,12 @@
 import Layout from '../components'
+import { useContext } from 'react'
+import { ThemeContext } from '../context/ThemeContextProvider'
 
 const About = () => {
+  const { isDarkTheme } = useContext(ThemeContext)
   return (
     <Layout>
-      <div className='grid gap-5 my-20 md:text-xl'>
+      <div className={`${isDarkTheme ? "text-[#1E0101]" : "text-[#FFEBE0]"} grid gap-5 my-20 md:text-xl`}>
         <p><span className='bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-violet-600 font-semibold'>SocialProfile</span> is a platform that allows users to share their social media links and create a user profile. Whether you are a freelancer, an influencer, or a business owner, <span className='bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-violet-600 font-semibold'>SocialProfile</span> provides an easy and convenient way to connect with your audience and showcase your online presence. </p>
         
         <p>Creating a user profile on Social Profiles is quick and easy. Once you sign up, you can add all your social media links to your profile, including links to your LinkedIn, Twitter, Facebook, GitHub, and Instagram accounts. You can also add a profile picture and a short bio to give your audience a better idea of who you are and what you do. </p>

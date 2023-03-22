@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 
 export const ThemeContext = createContext();
 
@@ -7,11 +7,12 @@ const ThemeContextProvider = (props) => {
 
   const toggleTheme = () => {
     setIsDarkTheme(!isDarkTheme);
-    toggleThemeMode()
+    toggleThemeMode();
   };
 
-  const toggleThemeMode = () => {
 
+
+  const toggleThemeMode = () => {
     if (isDarkTheme) {
       document.body.style.backgroundColor = "#16012B"
       document.querySelector(".bannerCard").style.boxShadow = "0px 4px 50px 20px rgba(0, 0, 0, 0.40)"
