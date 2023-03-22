@@ -11,8 +11,8 @@ const Home = () => {
     return (
         <Layout>
             <HeroSection />
-            <section className="my-32 bg-center bg-cover">
-                <div className="bg-[url(/assets/TopProfileShape.png)] bg-no-repeat bg-cover tpProfileBG"></div>
+            <section className="my-32 bg-center bg-cover z-10">
+                <div className="bg-[url(/assets/TopProfileShape.png)] bg-no-repeat bg-cover tpProfileBG -z-10"></div>
                 <div>
                     <h2 className="text-xl font-semibold">Top Profiles</h2>
                 </div>
@@ -28,8 +28,8 @@ const Home = () => {
                     }
                 </div>
             </section>
-            <section className="my-32 bg-center bg-cover relative">
-                <div className="bg-[url(/assets/TopProfileShape.png)] bg-no-repeat bg-cover ProfileBG"></div>
+            <section className="my-32 bg-center bg-cover relative z-10">
+                <div className="bg-[url(/assets/TopProfileShape.png)] bg-no-repeat bg-cover ProfileBG -z-10"></div>
                 <div>
                     <h2 className="text-xl font-semibold">Profiles</h2>
                 </div>

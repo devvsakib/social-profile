@@ -13,7 +13,7 @@ const ProfileCard = ({ user, id }) => {
         <div className="flex justify-between my-5">
           <h2 className="text-xl font-semibold">{user.fullname}</h2>
           <button>
-            <Link>View</Link>
+            <Link to={`/profile/${user.username}`}>View</Link>
           </button>
         </div>
         <div className="flex justify-center text-2xl gap-5 mt-10">

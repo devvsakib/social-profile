@@ -22,7 +22,7 @@ const Header = () => {
       <div className="flex justify-between max-w-[1280px] mx-auto px-10">
         <div>
           <Link to={"/"}>
-            <img className="w-36" src={isDarkTheme ? "assets/LogoDark.png" : "assets/Logo.png"} />
+            <img className="w-36" src={isDarkTheme ? "/assets/LogoDark.png" : "/assets/Logo.png"} />
           </Link>
         </div>
         {
