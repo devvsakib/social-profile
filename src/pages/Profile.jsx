@@ -24,14 +24,13 @@ const Profile = () => {
                         <h1 className="text-2xl font-bold">{user.fullname}</h1>
                         <p className="text-gray-500">{user.username}</p>
                     </div>
-                    
-                    {/* <div className="flex justify-center text-2xl gap-5 mt-10">
-                        <a target={'_blank'} className="hover:text-[#1E0101] transition-all duration-200 ease-linear" href={user.social_media_links.twitter}><FaTwitter /></a>
-                        <a target={'_blank'} className="hover:text-[#1E0101] transition-all duration-200 ease-linear" href={user.social_media_links.facebook}><FaFacebook /></a>
-                        <a target={'_blank'} className="hover:text-[#1E0101] transition-all duration-200 ease-linear" href={user.social_media_links.github}><FaGithub /></a>
-                        <a target={'_blank'} className="hover:text-[#1E0101] transition-all duration-200 ease-linear" href={user.social_media_links.instagram}><FaInstagram /></a>
-                        <a target={'_blank'} className="hover:text-[#1E0101] transition-all duration-200 ease-linear" href={user.social_media_links.linkedin}><FaLinkedin /></a>
-                    </div> */}
+                    <div className="flex justify-center text-2xl gap-5 mt-10">
+                        <a target={'_blank'} className="hover:text-[#1E0101] transition-all duration-200 ease-linear" href={user.social_media_links?.twitter}><FaTwitter /></a>
+                        <a target={'_blank'} className="hover:text-[#1E0101] transition-all duration-200 ease-linear" href={user.social_media_links?.facebook}><FaFacebook /></a>
+                        <a target={'_blank'} className="hover:text-[#1E0101] transition-all duration-200 ease-linear" href={user.social_media_links?.github}><FaGithub /></a>
+                        <a target={'_blank'} className="hover:text-[#1E0101] transition-all duration-200 ease-linear" href={user.social_media_links?.instagram}><FaInstagram /></a>
+                        <a target={'_blank'} className="hover:text-[#1E0101] transition-all duration-200 ease-linear" href={user.social_media_links?.linkedin}><FaLinkedin /></a>
+                    </div>
                    
                 </div>
             </section>
