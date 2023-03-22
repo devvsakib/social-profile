@@ -20,18 +20,30 @@ const RegisterForm = () => {
     },
   })
 
-  const getUserData = e => {
-    setUser({
-      ...user, [e.target.name]: e.target.value, social_media_links: {
-        ...user.social_media_links, [e.target.name]: e.target.value
-      }
+  const getUserData = (e) => {
+    const { name, value } = e.target;
+    if (name in user.social_media_links) {
+      setUser((prevUser) => ({
+        ...prevUser,
+        social_media_links: {
+          ...prevUser.social_media_links,
+          [name]: value,
+        },
+      }));
+    } else {
+      setUser((prevUser) => ({
+        ...prevUser,
+        [name]: value,
+      }));
+    }
+  };
 
 
-    })
-  }
   console.log(user);
-
-
+  const submitProfile = e => {
+    e.preventDefault()
+    // alert("Profile Submitted "+ user.fullname)
+  }
 
 
   return (
@@ -88,7 +100,9 @@ const RegisterForm = () => {
                 </div>
               </div>
             </div>
-            <button>
+            <button
+              onClick={submitProfile}
+            >
               <SPButton content="Register" />
             </button>
             <div className="mt-5">
