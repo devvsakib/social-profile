@@ -1,7 +1,9 @@
+import Layout from '../components'
+
 const About = () => {
   return (
-    <div>
-    </div>
+    <Layout>
+    </Layout>
   )
 }
 

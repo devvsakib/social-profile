@@ -1,9 +1,12 @@
 import React from 'react'
 import RegisterForm from '../components/Auth/RegisterForm'
+import Layout from '../components'
 
 const Register = () => {
   return (
-    <RegisterForm />
+    <Layout>
+      <RegisterForm />
+    </Layout>
   )
 }
 
