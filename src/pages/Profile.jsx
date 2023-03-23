@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { Toaster } from "react-hot-toast"
 import { useParams } from "react-router-dom"
 import api from "../API"
 import Layout from "../components"
 import ProfileSocialList from "../components/Common/ProfileSocialList"
+import { ThemeContext } from '../context/ThemeContextProvider'
 
 const Profile = () => {
+    const { isDarkTheme } = useContext(ThemeContext)
     const { username } = useParams()
     const [user, setUser] = useState({})
     const [loading, setLoading] = useState(false)
@@ -25,11 +27,7 @@ const Profile = () => {
 
     return (
         <Layout>
-            <section className="my-20 mt-10">
-                {/* <Toaster
-                        position="top-center"
-                        reverseOrder={false}
-                    /> */}
+            <section className={`my-20 mt-10 ${isDarkTheme ? "text-[#1E0101]" : "text-[#FFEBE0]"}`}>
                 {
                     loading ? <h1>Loading...</h1> : (
 
