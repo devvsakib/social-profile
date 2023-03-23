@@ -15,7 +15,7 @@ const RegisterForm = () => {
     fullname: "",
     username: "",
     password: "",
-    profile_picture_url: "https://social-profiles.vercel.app/assets/NoImage.png",
+    profile_picture_url: "",
     social_media_links: {
       github: "",
       twitter: "",
@@ -50,6 +50,9 @@ const RegisterForm = () => {
     if (user.username && user.fullname && user.password && !(user.social_media_links.github || user.social_media_links.twitter || user.social_media_links.facebook || user.social_media_links.instagram || user.social_media_links.linkedin) && (!user.profile_picture_url || user.profile_picture_url)) {
       alert("One social link is required")
     } else {
+      if (!user.profile_picture_url) {
+        user.profile_picture_url = "https://social-profiles.vercel.app/assets/NoImage.png"
+      }
       api.post("/register", user)
         .then(res => {
           if (res.data.statusCode === 201) {
