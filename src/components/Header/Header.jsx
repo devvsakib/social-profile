@@ -5,6 +5,8 @@ import { useContext, useEffect, useState } from "react";
 import useWindowSize from "../../hooks/useWindowSize";
 import { ThemeContext } from "../../context/ThemeContextProvider";
 import { useCookies } from "react-cookie";
+import toast, { Toaster } from "react-hot-toast"
+
 
 const Header = () => {
   const menu = [{ name: "Home", path: '/' }, { name: "About", path: '/about' }]
@@ -12,7 +14,7 @@ const Header = () => {
   const [username, setUsername] = useState("");
   const [cookie, setCookie] = useCookies(["access_token"]);
   const { width } = useWindowSize()
-  const { usernameParam } = useParams();
+  const [success, setSuccess] = useState(false)
   const { isDarkTheme, toggleTheme } = useContext(ThemeContext);
 
   useEffect(() => {
@@ -23,6 +25,11 @@ const Header = () => {
 
 
   const logout = () => {
+    setSuccess(true)
+    toast.success("Logout Successfully", {
+      duration: 3000,
+      icon: "🚀",
+    })
     setCookie("access_token", "", { path: "/" })
     window.localStorage.removeItem("userId")
     window.localStorage.removeItem("username")
@@ -38,6 +45,12 @@ const Header = () => {
 
   return (
     <header className={`${isDarkTheme ? 'bg-[#F3E8FF] text-[#1E0101]' : ' text-[#F3E8FF]'} sticky shadow-xl navbarShadow py-2`}>
+      {
+        success ? <Toaster
+          position="top-center"
+          reverseOrder={false}
+        /> : null
+      }
       <div className="flex justify-between max-w-[1280px] mx-auto px-10">
         <div>
           <Link to={"/"}>
