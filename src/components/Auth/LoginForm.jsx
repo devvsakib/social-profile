@@ -10,6 +10,7 @@ const LoginForm = () => {
   const { isDarkTheme } = useContext(ThemeContext)
   const [_, setCookies] = useCookies(["access_token"])
   const navigate = useNavigate()
+  const [isLoading, setIsLoading] = useState(false)
   const [user, setUser] = useState({
     username: "",
     password: "",
@@ -26,6 +27,7 @@ const LoginForm = () => {
 
   const loginUser = (e) => {
     e.preventDefault()
+    setIsLoading(true)
     api.post("/login", user)
       .then((res) => {
         if (res.data.statusCode === 200) {
@@ -38,6 +40,7 @@ const LoginForm = () => {
         else {
           alert(res.data.message);
         }
+        setIsLoading(false)
       })
   }
 
@@ -50,7 +53,7 @@ const LoginForm = () => {
             <input onChange={(e) => setUserData(e)} type="text" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} `} required placeholder="Username" name="username" />
             <input onChange={(e) => setUserData(e)} name="password" type="password" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} `} required placeholder="Password" />
             <button>
-              <SPButton content="Login" />
+              <SPButton content="Login" isLoading={isLoading} />
             </button>
             <div className="mt-5">
               <p>New to SocialProfile?</p>
