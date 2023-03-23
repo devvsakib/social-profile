@@ -18,4 +18,4 @@ SocialProfile is a social platform that allows users to create a profile and sha
 - [x] Viewing other users' profile
 - [] Updating profile
 - [] Deleting profile
-- [] Authentication
+- [x] Authentication
