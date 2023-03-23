@@ -5,12 +5,14 @@ import { ThemeContext } from "../../context/ThemeContextProvider"
 import api from "../../API"
 import { useCookies } from "react-cookie"
 import { useNavigate } from "react-router-dom"
+import toast, { Toaster } from "react-hot-toast"
 
 const LoginForm = () => {
   const { isDarkTheme } = useContext(ThemeContext)
   const [_, setCookies] = useCookies(["access_token"])
   const navigate = useNavigate()
   const [isLoading, setIsLoading] = useState(false)
+  const [success, setSuccess] = useState(false)
   const [user, setUser] = useState({
     username: "",
     password: "",
@@ -31,21 +33,36 @@ const LoginForm = () => {
     api.post("/login", user)
       .then((res) => {
         if (res.data.statusCode === 200) {
+          setSuccess(true)
+          toast.success(res.data.message, {
+            duration: 3000,
+            icon: "🚀",
+          })
           window.localStorage.setItem("userId", res.data.userId);
           window.localStorage.setItem("username", res.data.username);
           setCookies("access_token", res.data.token, { path: "/" })
           navigate(`/profile/${res.data.username}`)
-          alert(res.data.message);
         }
         else {
-          alert(res.data.message);
+          setSuccess(true)
+          toast.success(res.data.message, {
+            duration: 3000,
+            icon: "🚫",
+          })
         }
         setIsLoading(false)
       })
   }
 
+
   return (
     <section className="bg-[url(/assets/BannerShape.png)] bg-cover bg-center mt-10 w-[85vw]">
+      {
+        success ? <Toaster
+          position="top-center"
+          reverseOrder={false}
+        /> : null
+      }
       <div className="rounded-lg  p-5 pb-10 shadow-white/10 shadow-lg bannerCard bg-white/5">
         <div className="text-center">
           <h1 className="font-sptitle tt text-3xl mt-5 break-words md:text-3xl">Login</h1>

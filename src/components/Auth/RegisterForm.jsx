@@ -5,10 +5,12 @@ import api from "../../API"
 import { ThemeContext } from "../../context/ThemeContextProvider"
 import SPButton from "../Common/SPButton"
 import { useNavigate } from "react-router-dom"
+import toast, { Toaster } from "react-hot-toast"
 
 const RegisterForm = () => {
   const { isDarkTheme } = useContext(ThemeContext)
   const [show, setShow] = useState(true)
+  const [success, setSuccess] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const navigate = useNavigate()
   const [user, setUser] = useState({
@@ -48,7 +50,12 @@ const RegisterForm = () => {
     e.preventDefault()
     setIsLoading(true)
     if (user.username && user.fullname && user.password && !(user.social_media_links.github || user.social_media_links.twitter || user.social_media_links.facebook || user.social_media_links.instagram || user.social_media_links.linkedin) && (!user.profile_picture_url || user.profile_picture_url)) {
-      alert("One social link is required")
+      setSuccess(true)
+      toast.error("Please fill atleast one social media link or profile picture", {
+        duration: 3000,
+        icon: "🚫",
+      })
+      setIsLoading(false)
     } else {
       if (!user.profile_picture_url) {
         user.profile_picture_url = "https://social-profiles.vercel.app/assets/NoImage.png"
@@ -56,10 +63,18 @@ const RegisterForm = () => {
       api.post("/register", user)
         .then(res => {
           if (res.data.statusCode === 201) {
-            alert("User registered successfully")
+            setSuccess(true)
+            toast.success(res.data.message, {
+              duration: 3000,
+              icon: "🚀",
+            })
             navigate("/login")
           } else {
-            alert(res.data.message)
+            setSuccess(true)
+            toast.error(res.data.message, {
+              duration: 3000,
+              icon: "🚫",
+            })
           }
           setIsLoading(false)
         })
@@ -73,6 +88,12 @@ const RegisterForm = () => {
 
   return (
     <section className="mt-10 w-[85vw] xxl:w-[85vw] mb-20 relative">
+      {
+        success ? <Toaster
+          position="top-center"
+          reverseOrder={false}
+        /> : null
+      }
       <div className="bg-[url(/assets/BannerShape.png)] registerFormBG bg-cover bg-center -z-10"></div>
       <div className="rounded-lg  p-5 pb-10 shadow-white/10 shadow-lg bannerCard bg-white/5">
         <div className="text-center">

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Toaster } from "react-hot-toast"
 import { useParams } from "react-router-dom"
 import api from "../API"
 import Layout from "../components"
@@ -25,6 +26,10 @@ const Profile = () => {
     return (
         <Layout>
             <section className="my-20 mt-10">
+                {/* <Toaster
+                        position="top-center"
+                        reverseOrder={false}
+                    /> */}
                 {
                     loading ? <h1>Loading...</h1> : (
 
