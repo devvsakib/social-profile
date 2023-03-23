@@ -1,12 +1,15 @@
 import { useContext, useState } from "react"
 import { FaTwitter, FaLinkedin, FaFacebook, FaInstagram, FaGithub } from "react-icons/fa"
 import { Link } from "react-router-dom"
+import api from "../../API"
 import { ThemeContext } from "../../context/ThemeContextProvider"
 import SPButton from "../Common/SPButton"
+import { useNavigate } from "react-router-dom"
 
 const RegisterForm = () => {
   const { isDarkTheme } = useContext(ThemeContext)
   const [show, setShow] = useState(true)
+  const navigate = useNavigate()
   const [user, setUser] = useState({
     fullname: "",
     username: "",
@@ -42,6 +45,24 @@ const RegisterForm = () => {
 
   const submitProfile = e => {
     e.preventDefault()
+    if (
+      user.username && user.fullname && user.password && !(user.social_media_links.github || user.social_media_links.twitter || user.social_media_links.facebook || user.social_media_links.instagram || user.social_media_links.linkedin)
+    ) {
+      alert("One social link is required")
+    }else{
+
+      api.post("/register", user)
+        .then(res => {
+          if (res.data.statusCode === 201) {
+            console.log(user);
+            alert("User registered successfully")
+            navigate("/login")
+          }else{
+            alert(res.data.message)
+          }
+        })
+
+    }
   }
 
   const showToolTip = () => {
@@ -55,16 +76,16 @@ const RegisterForm = () => {
       <div className="rounded-lg  p-5 pb-10 shadow-white/10 shadow-lg bannerCard bg-white/5">
         <div className="text-center">
           <h1 className="font-sptitle tt text-3xl mt-5 break-words md:text-3xl">Register</h1>
-          <div className="grid grid-cols-1 capitalize place-items-center justify-center my-8 gap-5">
+          <form onSubmit={submitProfile} className="grid grid-cols-1 capitalize place-items-center justify-center my-8 gap-5">
             <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-items-center  md:justify-items-end gap-5">
               <div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <input type="text" name="fullname" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} `} placeholder="Full Name" onChange={e => getUserData(e)} />
-                  <input type="text" name="username" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} `} placeholder="Username" onChange={e => getUserData(e)} />
-                  <input type="password" name="password" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} `} placeholder="Password" onChange={e => getUserData(e)} />
+                  <input type="text" name="fullname" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} `} required placeholder="Full Name" onChange={e => getUserData(e)} />
+                  <input type="text" name="username" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} `} required placeholder="Username" onChange={e => getUserData(e)} />
+                  <input type="password" name="password" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} `} required placeholder="Password" onChange={e => getUserData(e)} />
                   <div className="relative">
                     <p className={`sp-ques-show ${show ? "hidden" : ""}`}>Copy URL From Any Social Media</p>
-                    <input type="text" name="profile_picture_url" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} `} placeholder="Profile Picture URL" onChange={e => getUserData(e)} />
+                    <input type="text" name="profile_picture_url" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} `} required placeholder="Profile Picture URL" onChange={e => getUserData(e)} />
                     <button className="sp-ques"
                       onClick={showToolTip}
                     >?</button>
@@ -110,7 +131,7 @@ const RegisterForm = () => {
               </div>
             </div>
             <button
-              onClick={submitProfile}
+            type="submit"
             >
               <SPButton content="Register" />
             </button>
@@ -118,7 +139,7 @@ const RegisterForm = () => {
               <p>Already Have an Account?</p>
               <Link to="/login" className="text-blue-500">Login</Link>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </section>

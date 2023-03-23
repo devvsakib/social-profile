@@ -11,8 +11,8 @@ const LoginForm = () => {
         <div className="text-center">
           <h1 className="font-sptitle tt text-3xl mt-5 break-words md:text-3xl">Login</h1>
           <div className="grid grid-cols-1 capitalize place-items-center justify-center my-8 gap-5">
-            <input type="text" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} `} placeholder="Username" />
-            <input type="password" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} `} placeholder="Password" />
+            <input type="text" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} `} required placeholder="Username" />
+            <input type="password" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} `} required placeholder="Password" />
             <button>
               <SPButton content="Login" />
             </button>
