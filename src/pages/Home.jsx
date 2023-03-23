@@ -8,15 +8,19 @@ import api from "../API";
 
 const Home = () => {
     const [user, setUser] = useState([])
+    const [shuffledUsers, setShuffledUsers] = useState([])
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
+        setLoading(true)
         api.get('/users')
             .then(res => {
                 setUser(res.data)
-                console.log(res.data);
+                setShuffledUsers([...res.data].sort(() => Math.random() - 0.5).slice(0, 3))
+                setLoading(false)
             })
             .catch(err => {
-                console.log(err)
+                // console.log(err)
             })
     }, [])
 
@@ -31,12 +35,13 @@ const Home = () => {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10">
                     {
-                        user ? user.map((user, idx) => (
-                            <ProfileCard
-                                user={user}
-                                id={idx}
-                            />
-                        )) : <h2>No Top Profile yet</h2>
+                        loading ? "Loading" :
+                            (shuffledUsers ? shuffledUsers.map((user, idx) => (
+                                <ProfileCard
+                                    user={user}
+                                    key={idx}
+                                />
+                            )) : <h2>No Top Profile yet</h2>)
 
                     }
                 </div>
@@ -48,13 +53,13 @@ const Home = () => {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:grid-cols-4 gap-10 mt-10">
                     {
-                        user ? user.map((user, idx) => (
-                            <ProfileCard
-                                user={user}
-                                id={idx}
-                            />
-                        )) : <h2>No Profile yet</h2>
-
+                        loading ? "Loading" :
+                            (user ? user.map((user, idx) => (
+                                <ProfileCard
+                                    user={user}
+                                    key={idx}
+                                />
+                            )) : <h2>No Profile Found</h2>)
                     }
                 </div>
             </section>

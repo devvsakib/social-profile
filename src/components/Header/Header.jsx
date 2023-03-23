@@ -4,10 +4,13 @@ import { FaBars, FaMoon, FaSun } from "react-icons/fa"
 import { useContext, useEffect, useState } from "react";
 import useWindowSize from "../../hooks/useWindowSize";
 import { ThemeContext } from "../../context/ThemeContextProvider";
+import { useCookies } from "react-cookie";
 
 const Header = () => {
-  const menu = [{ name: "Home", path: '/' }, { name: "About", path: '/about' }, { name: "Login", path: '/login' }]
+  const menu = [{ name: "Home", path: '/' }, { name: "About", path: '/about' }]
   const [openMenu, setOpenMenu] = useState(false);
+  const [username, _] = useState(window.localStorage.getItem("username"));
+  const [cookie, setCookie] = useCookies(["access_token"]);
   const { width } = useWindowSize()
   const { isDarkTheme, toggleTheme } = useContext(ThemeContext);
 
@@ -16,6 +19,15 @@ const Header = () => {
       setOpenMenu(!menu)
     }
   }, [width])
+  console.log(cookie);
+
+
+  const logout = () => {
+    setCookie("access_token", "", { path: "/" })
+    window.localStorage.removeItem("userId")
+    window.localStorage.removeItem("username")
+  }
+
 
   return (
     <header className={`${isDarkTheme ? 'bg-[#F3E8FF] text-[#1E0101]' : ' text-[#F3E8FF]'} sticky shadow-xl navbarShadow py-2`}>
@@ -37,6 +49,18 @@ const Header = () => {
                   menu.map((item, idx) => (
                     <li key={idx}><Link to={item.path}>{item.name}</Link></li>
                   ))
+                }
+                {
+                  !cookie.access_token ?
+                    <li><Link to={"/login"}>Login</Link></li>
+                    :
+                    <div className="flex gap-10">
+                      <li><Link to={`/profile/${username}`}>Profile</Link></li>
+                      <li
+                        onClick={logout}
+                      ><Link to={"/"}>Logout</Link></li>
+                    </div>
+
                 }
               </ul>
               <button onClick={toggleTheme} className="p-3">
