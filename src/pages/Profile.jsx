@@ -24,7 +24,7 @@ const Profile = () => {
                     alert(res.data.message);
                 }
             })
-    }, [])
+    }, [user.length])
 
     useEffect(() => {
         const user = localStorage.getItem("username")
@@ -48,8 +48,9 @@ const Profile = () => {
                         <div className="text-center">
                             {
                                 loggedUser && loggedUser === user.username && (
-                                    <div className="flex justify-end">
-                                        <button onClick={showToast} className="bg-[#FFEBE0] text-[#1E0101] px-4 py-2 rounded-md">Edit Profile</button>
+                                    <div className="flex justify-center mb-2 md:mb-0 md:justify-end gap-2">
+                                        <button onClick={showToast} className={`${isDarkTheme ? "bg-[#1E0101]/10" : "bg-[#FFEBE0]"} text-[#1E0101] px-4 py-2 rounded-md`}>Edit Profile</button>
+                                        <button onClick={showToast} className={`${isDarkTheme ? "bg-[#1E0101]/10" : "bg-[#FFEBE0]"} text-[#1E0101] px-4 py-2 rounded-md`}>Delete Profile</button>
                                     </div>
                                 )
                             }
