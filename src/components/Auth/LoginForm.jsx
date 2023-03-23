@@ -41,15 +41,6 @@ const LoginForm = () => {
       })
   }
 
-  // Response
-  // {
-  //   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MWM3MmFlMWUyZWRjNzYyNTQ2MjdmZCIsImlhdCI6MTY3OTU4NjAxN30.EgDAspvmZp4gCFiFls3D7P9XwSiCi2y7Diu4Dwt26kI",
-  //   "userId": "641c72ae1e2edc76254627fd",
-  //   "username": "devvsakib",
-  //   "message": "Login Successfully!",
-  //   "statusCode": 200
-  // }
-
   return (
     <section className="bg-[url(/assets/BannerShape.png)] bg-cover bg-center mt-10 w-[85vw]">
       <div className="rounded-lg  p-5 pb-10 shadow-white/10 shadow-lg bannerCard bg-white/5">

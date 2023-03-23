@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./style.css"
 import { FaBars, FaMoon, FaSun } from "react-icons/fa"
 import { useContext, useEffect, useState } from "react";
@@ -12,6 +12,7 @@ const Header = () => {
   const [username, setUsername] = useState("");
   const [cookie, setCookie] = useCookies(["access_token"]);
   const { width } = useWindowSize()
+  const { usernameParam } = useParams();
   const { isDarkTheme, toggleTheme } = useContext(ThemeContext);
 
   useEffect(() => {
@@ -19,17 +20,19 @@ const Header = () => {
       setOpenMenu(!menu)
     }
   }, [width])
-  console.log(cookie);
 
 
   const logout = () => {
     setCookie("access_token", "", { path: "/" })
     window.localStorage.removeItem("userId")
     window.localStorage.removeItem("username")
+    setUsername("")
   }
   useEffect(() => {
-    setUsername(window.localStorage.getItem("username"))
-  }, [])
+    if (window.localStorage.getItem("username")) {
+      setUsername(window.localStorage.getItem("username"))
+    }
+  }, [menu])
 
 
 
@@ -59,7 +62,7 @@ const Header = () => {
                     <li><Link to={"/login"}>Login</Link></li>
                     :
                     <div className="flex gap-10">
-                      <li><Link to={`/profile/${username}`}>Profile</Link></li>
+                      <li><Link to={`/profile/${username && username}`}>Profile</Link></li>
                       <li
                         onClick={logout}
                       ><Link to={"/"}>Logout</Link></li>
