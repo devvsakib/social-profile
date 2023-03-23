@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from "react"
-import { Toaster } from "react-hot-toast"
 import { useParams } from "react-router-dom"
 import api from "../API"
 import Layout from "../components"
 import ProfileSocialList from "../components/Common/ProfileSocialList"
 import { ThemeContext } from '../context/ThemeContextProvider'
+import toast, { Toaster } from "react-hot-toast"
 
 const Profile = () => {
     const { isDarkTheme } = useContext(ThemeContext)
@@ -34,10 +34,14 @@ const Profile = () => {
 
     }, [])
 
+    const showToast = () => {
+        toast.success("Feature Coming Soon...")
+    }
 
     return (
         <Layout>
             <section className={`my-20 mt-10 ${isDarkTheme ? "text-[#1E0101]" : "text-[#FFEBE0]"}`}>
+                <Toaster />
                 {
                     loading ? <h1>Loading...</h1> : (
 
@@ -45,7 +49,7 @@ const Profile = () => {
                             {
                                 loggedUser && loggedUser === user.username && (
                                     <div className="flex justify-end">
-                                        <button className="bg-[#FFEBE0] text-[#1E0101] px-4 py-2 rounded-md">Edit Profile</button>
+                                        <button onClick={showToast} className="bg-[#FFEBE0] text-[#1E0101] px-4 py-2 rounded-md">Edit Profile</button>
                                     </div>
                                 )
                             }
