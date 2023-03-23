@@ -13,7 +13,7 @@ SocialProfile is a social platform that allows users to create a profile and sha
 ## Features
 > will be added soon
 
-- [] Creating profile
+- [x] Creating profile
 - [x] Viewing profile 
 - [x] Viewing other users' profile
 - [] Updating profile
