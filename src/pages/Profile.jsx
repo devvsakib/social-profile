@@ -10,6 +10,7 @@ const Profile = () => {
     const { isDarkTheme } = useContext(ThemeContext)
     const { username } = useParams()
     const [user, setUser] = useState({})
+    const [loggedUser, setLoggedUser] = useState("")
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
@@ -25,6 +26,15 @@ const Profile = () => {
             })
     }, [])
 
+    useEffect(() => {
+        const user = localStorage.getItem("username")
+        if (user) {
+            setLoggedUser(user)
+        }
+
+    }, [])
+
+
     return (
         <Layout>
             <section className={`my-20 mt-10 ${isDarkTheme ? "text-[#1E0101]" : "text-[#FFEBE0]"}`}>
@@ -32,7 +42,19 @@ const Profile = () => {
                     loading ? <h1>Loading...</h1> : (
 
                         <div className="text-center">
-                            <h1 className="text-2xl font-bold">Profile {user.fullname}</h1>
+                            {
+                                loggedUser && loggedUser === user.username && (
+                                    <div className="flex justify-end">
+                                        <button className="bg-[#FFEBE0] text-[#1E0101] px-4 py-2 rounded-md">Edit Profile</button>
+                                    </div>
+                                )
+                            }
+                            {
+                              loggedUser && loggedUser === user.username ?
+                                <h1 className="text-2xl font-bold">My Profile</h1> :
+                                <h1 className="text-2xl font-bold">Profile {user.fullname}</h1>
+                                
+                            }
                             <div className="mx-auto rounded-full overflow-hidden w-5/12 md:w-2/12 my-6">
                                 <img className="w-full" src={user.profile_picture_url} alt="" />
                             </div>
