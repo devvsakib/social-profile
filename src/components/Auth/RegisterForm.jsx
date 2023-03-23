@@ -56,7 +56,6 @@ const RegisterForm = () => {
       api.post("/register", user)
         .then(res => {
           if (res.data.statusCode === 201) {
-            console.log(user);
             alert("User registered successfully")
             navigate("/login")
           } else {
