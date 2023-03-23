@@ -87,15 +87,15 @@ const RegisterForm = () => {
 
 
   return (
-    <section className="mt-10 w-[85vw] xxl:w-[85vw] mb-20 relative">
+    <section className="bg-[url(/assets/BannerShape.png)] bg-cover bg-center mt-10 xxl:w-[85vw] mb-20">
       {
         success ? <Toaster
           position="top-center"
           reverseOrder={false}
         /> : null
       }
+      <div className="rounded-lg bg-white/10 p-5 pb-10  bannerCard relative">
       <div className="bg-[url(/assets/BannerShape.png)] registerFormBG bg-cover bg-center -z-10"></div>
-      <div className="rounded-lg  p-5 pb-10 shadow-white/10 shadow-lg bannerCard bg-white/5">
         <div className="text-center">
           <h1 className="font-sptitle tt text-3xl mt-5 break-words md:text-3xl">Register</h1>
           <form onSubmit={submitProfile} className="grid grid-cols-1 capitalize place-items-center justify-center my-8 gap-5">

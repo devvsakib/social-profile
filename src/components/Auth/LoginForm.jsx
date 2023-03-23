@@ -56,7 +56,7 @@ const LoginForm = () => {
 
 
   return (
-    <section className="bg-[url(/assets/BannerShape.png)] bg-cover bg-center mt-10 w-[85vw]">
+    <section className="bg-[url(/assets/BannerShape.png)] bg-cover bg-center mt-10 xxl:w-[85vw]">
       {
         success ? <Toaster
           position="top-center"

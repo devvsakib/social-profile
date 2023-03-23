@@ -103,12 +103,17 @@ main {
   background-color: var(--input-bg);
 }
 .registerFormBG{
-  position: absolute;
+  position: fixed;
   transform: translateY(100px);
-  left: 0;
-  height: 500px;
+  height: 100%;
   width: 100vw;
-  ;
+  opacity: .5;
+  transform: translateX(-30vw);
+}
+@media (max-width: 768px) {
+  .registerFormBG{
+    transform: translateX(-15vw);
+  }  
 }
 
 .sp-ques{
