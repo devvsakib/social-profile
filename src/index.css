@@ -115,7 +115,7 @@ main {
   @apply absolute bg-white text-black w-5 h-5 text-sm font-semibold rounded-full -right-2 border-black border-2 -top-2
 }
 .sp-ques-show{
-  @apply bg-white text-black font-semibold rounded-lg absolute text-sm border-black border-2 px-2 -right-5 -top-9
+  @apply bg-white text-black font-semibold rounded-lg absolute text-sm md:text-[12px] border-black border-2 px-2 -right-5 -top-16 md:-top-9
 }
 .sp-ques-show::after{
   content: '';

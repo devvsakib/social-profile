@@ -45,19 +45,23 @@ const RegisterForm = () => {
 
   const submitProfile = e => {
     e.preventDefault()
-    if (
-      user.username && user.fullname && user.password && !(user.social_media_links.github || user.social_media_links.twitter || user.social_media_links.facebook || user.social_media_links.instagram || user.social_media_links.linkedin)
-    ) {
+    if (user.username && user.fullname && user.password && !(user.social_media_links.github || user.social_media_links.twitter || user.social_media_links.facebook || user.social_media_links.instagram || user.social_media_links.linkedin)) {
       alert("One social link is required")
-    }else{
-
+    } else {
+      if (user.profile_picture_url.length === 0) {
+        setUser((prevUser) => ({
+          ...prevUser,
+          profile_picture_url: "https://social-profiles.vercel.app/assets/NoImage.png",
+        }));
+      }
+      console.log(user);
       api.post("/register", user)
         .then(res => {
           if (res.data.statusCode === 201) {
             console.log(user);
             alert("User registered successfully")
             navigate("/login")
-          }else{
+          } else {
             alert(res.data.message)
           }
         })
@@ -84,11 +88,11 @@ const RegisterForm = () => {
                   <input type="text" name="username" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} `} required placeholder="Username" onChange={e => getUserData(e)} />
                   <input type="password" name="password" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} `} required placeholder="Password" onChange={e => getUserData(e)} />
                   <div className="relative">
-                    <p className={`sp-ques-show ${show ? "hidden" : ""}`}>Copy URL From Any Social Media</p>
-                    <input type="text" name="profile_picture_url" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} `} required placeholder="Profile Picture URL" onChange={e => getUserData(e)} />
-                    <button className="sp-ques"
+                    <p className={`sp-ques-show ${show ? "hidden" : ""}`}>Copy URL From Any Social or Leave Blank </p>
+                    <input type="text" name="profile_picture_url" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} max-w-full `}  placeholder="Profile Picture URL" onChange={e => getUserData(e)} />
+                    <span className="sp-ques select-none cursor-pointer"
                       onClick={showToolTip}
-                    >?</button>
+                    >?</span>
                   </div>
                 </div>
                 <div className="mt-6">
@@ -131,7 +135,7 @@ const RegisterForm = () => {
               </div>
             </div>
             <button
-            type="submit"
+              type="submit"
             >
               <SPButton content="Register" />
             </button>
