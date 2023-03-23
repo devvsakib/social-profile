@@ -130,3 +130,10 @@ main {
   z-index: 10;
   transform: rotate(45deg);
 }
+
+.sp-listDark{
+  @apply md:w-2/4 md:md:w-2/4 bg-white/10 flex items-center justify-between gap-5 px-10 py-5 rounded-md mx-auto
+}
+.sp-listLight{
+  @apply md:w-2/4 md:md:w-2/4 shadow-black/30 shadow-md bg-white/10 flex items-center justify-between gap-5 px-10 py-5 rounded-md mx-auto text-[#1E0101] hover:text-[#9f24af]
+}
