@@ -9,7 +9,7 @@ import { useCookies } from "react-cookie";
 const Header = () => {
   const menu = [{ name: "Home", path: '/' }, { name: "About", path: '/about' }]
   const [openMenu, setOpenMenu] = useState(false);
-  const [username, _] = useState(window.localStorage.getItem("username"));
+  const [username, setUsername] = useState("");
   const [cookie, setCookie] = useCookies(["access_token"]);
   const { width } = useWindowSize()
   const { isDarkTheme, toggleTheme } = useContext(ThemeContext);
@@ -27,6 +27,10 @@ const Header = () => {
     window.localStorage.removeItem("userId")
     window.localStorage.removeItem("username")
   }
+  useEffect(() => {
+    setUsername(window.localStorage.getItem("username"))
+  }, [])
+
 
 
   return (

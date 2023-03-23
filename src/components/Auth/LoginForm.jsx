@@ -22,7 +22,6 @@ const LoginForm = () => {
       ...prevUser,
       [name]: value,
     }));
-    console.log(user);
   }
 
   const loginUser = (e) => {
