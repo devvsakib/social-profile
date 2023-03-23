@@ -1,12 +1,25 @@
+import axios from 'axios';
 import HeroSection from "../components/HeroSection/HeroSection.jsx"
 import ProfileCard from "../components/Profile/ProfileCard.jsx"
 import users from "../userdata.json"
 import Layout from "../components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import api from "../API";
 
 const Home = () => {
-    const [user, setUser] = useState(users)
-    const [shuffledUsers, setShuffledUsers] = useState([...users].sort(() => Math.random() - 0.5).slice(0, 3))
+    const [user, setUser] = useState([])
+
+    useEffect(() => {
+        api.get('/users')
+            .then(res => {
+                setUser(res.data)
+                console.log(res.data);
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }, [])
+
 
     return (
         <Layout>
@@ -18,7 +31,7 @@ const Home = () => {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10">
                     {
-                        shuffledUsers ? shuffledUsers.map((user, idx) => (
+                        user ? user.map((user, idx) => (
                             <ProfileCard
                                 user={user}
                                 id={idx}
