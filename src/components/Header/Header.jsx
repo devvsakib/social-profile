@@ -103,6 +103,18 @@ const Header = () => {
                 <li key={idx}><Link to={item.path}>{item.name}</Link></li>
               ))
             }
+            {
+              !cookie.access_token ?
+                <li><Link to={"/login"}>Login</Link></li>
+                :
+                <div className="flex gap-10">
+                  <li><Link to={`/profile/${username && username}`}>Profile</Link></li>
+                  <li
+                    onClick={logout}
+                  ><Link to={"/"}>Logout</Link></li>
+                </div>
+
+            }
           </ul>
           <button onClick={toggleTheme} className="p-3">
             {
