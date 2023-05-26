@@ -1,14 +1,12 @@
 import { Link } from "react-router-dom"
 import SPButton from "../Common/SPButton"
-import { useContext, useState } from "react"
-import { ThemeContext } from "../../context/ThemeContextProvider"
+import { useState } from "react"
 import api from "../../API"
 import { useCookies } from "react-cookie"
 import { useNavigate } from "react-router-dom"
 import toast, { Toaster } from "react-hot-toast"
 
 const LoginForm = () => {
-  const { isDarkTheme } = useContext(ThemeContext)
   const [_, setCookies] = useCookies(["access_token"])
   const navigate = useNavigate()
   const [isLoading, setIsLoading] = useState(false)
@@ -36,7 +34,6 @@ const LoginForm = () => {
           setSuccess(true)
           toast.success(res.data.message, {
             duration: 3000,
-            icon: "🚀",
           })
           window.localStorage.setItem("userId", res.data.userId);
           window.localStorage.setItem("username", res.data.username);
@@ -45,9 +42,8 @@ const LoginForm = () => {
         }
         else {
           setSuccess(true)
-          toast.success(res.data.message, {
+          toast.error(res.data.message, {
             duration: 3000,
-            icon: "🚫",
           })
         }
         setIsLoading(false)
@@ -57,18 +53,13 @@ const LoginForm = () => {
 
   return (
     <section className="bg-[url(/assets/BannerShape.png)] bg-cover bg-center mt-10 xxl:w-[85vw]">
-      {
-        success ? <Toaster
-          position="top-center"
-          reverseOrder={false}
-        /> : null
-      }
+
       <div className="rounded-lg  p-5 pb-10 shadow-white/10 shadow-lg bannerCard bg-white/5">
         <div className="text-center">
           <h1 className="font-sptitle tt text-3xl mt-5 break-words md:text-3xl">Login</h1>
           <form onSubmit={loginUser} className="grid grid-cols-1 capitalize place-items-center justify-center my-8 gap-5">
-            <input onChange={(e) => setUserData(e)} type="text" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} `} required placeholder="Username" name="username" />
-            <input onChange={(e) => setUserData(e)} name="password" type="password" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} `} required placeholder="Password" />
+            <input onChange={(e) => setUserData(e)} type="text" className={`${"sp-inpDark"} `} required placeholder="Username" name="username" />
+            <input onChange={(e) => setUserData(e)} name="password" type="password" className={` sp-inpDark `} required placeholder="Password" />
             <button>
               <SPButton content="Login" isLoading={isLoading} />
             </button>

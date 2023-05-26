@@ -15,7 +15,6 @@ const Header = () => {
   const [cookie, setCookie] = useCookies(["access_token"]);
   const { width } = useWindowSize()
   const [success, setSuccess] = useState(false)
-  const { isDarkTheme, toggleTheme } = useContext(ThemeContext);
 
   useEffect(() => {
     if (width > 768 && openMenu) {
@@ -44,7 +43,7 @@ const Header = () => {
 
 
   return (
-    <header className={`${isDarkTheme ? 'bg-[#F3E8FF] text-[#1E0101]' : ' text-[#F3E8FF]'} sticky shadow-xl navbarShadow py-2`}>
+    <header className={`text-[#F3E8FF] sticky shadow-xl navbarShadow py-5`}>
       {
         success ? <Toaster
           position="top-center"
@@ -54,7 +53,7 @@ const Header = () => {
       <div className="flex justify-between max-w-[1280px] mx-auto px-10">
         <div>
           <Link to={"/"}>
-            <img className="w-36" src={isDarkTheme ? "/assets/LogoDark.png" : "/assets/Logo.png"} />
+            <img className="w-36" src={"/assets/Logo.png"} />
           </Link>
         </div>
         {
@@ -83,11 +82,11 @@ const Header = () => {
 
                 }
               </ul>
-              <button onClick={toggleTheme} className="p-3">
+              {/* <button onClick={toggleTheme} className="p-3">
                 {
                   isDarkTheme ? <FaMoon /> : <FaSun />
                 }
-              </button>
+              </button> */}
             </nav>
         }
       </div>
@@ -116,11 +115,11 @@ const Header = () => {
 
             }
           </ul>
-          <button onClick={toggleTheme} className="p-3">
+          {/* <button onClick={toggleTheme} className="p-3">
             {
               !isDarkTheme ? <FaSun /> : <FaMoon />
             }
-          </button>
+          </button> */}
         </nav>
 
       }

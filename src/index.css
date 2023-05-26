@@ -53,11 +53,6 @@ body {
   flex-direction: column;
 }
 
-main {
-  flex: 1;
-  max-width: 1280px;
-  /* margin:0 auto; */
-}
 
 .spbtn {
   background: var(--sp-btn);

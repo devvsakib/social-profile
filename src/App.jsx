@@ -7,24 +7,25 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import ThemeContextProvider from "./context/ThemeContextProvider";
+import { Toaster } from "react-hot-toast";
 
 
 function App() {
-  const [theme, setTheme] = useState("dark");
   return (
-    <div className="App">
-      <ThemeContextProvider>
-        <Header />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/profile/:username" element={<Profile />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-          </Routes>
-        <Footer />
-      </ThemeContextProvider>
+    <div className="App max-w-[1240px] mx-auto flex flex-col  justify-center min-h-screen">
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+      />
+      <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/profile/:username" element={<Profile />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      <Footer />
     </div>
   )
 }

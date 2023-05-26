@@ -1,14 +1,12 @@
-import { useContext, useState } from "react"
+import { useState } from "react"
 import { FaTwitter, FaLinkedin, FaFacebook, FaInstagram, FaGithub } from "react-icons/fa"
 import { Link } from "react-router-dom"
 import api from "../../API"
-import { ThemeContext } from "../../context/ThemeContextProvider"
 import SPButton from "../Common/SPButton"
 import { useNavigate } from "react-router-dom"
 import toast, { Toaster } from "react-hot-toast"
 
 const RegisterForm = () => {
-  const { isDarkTheme } = useContext(ThemeContext)
   const [show, setShow] = useState(true)
   const [success, setSuccess] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
@@ -66,14 +64,12 @@ const RegisterForm = () => {
             setSuccess(true)
             toast.success(res.data.message, {
               duration: 3000,
-              icon: "🚀",
             })
             navigate("/login")
           } else {
             setSuccess(true)
             toast.error(res.data.message, {
               duration: 3000,
-              icon: "🚫",
             })
           }
           setIsLoading(false)
@@ -84,16 +80,8 @@ const RegisterForm = () => {
   const showToolTip = () => {
     setShow(!show)
   }
-
-
   return (
     <section className="bg-[url(/assets/BannerShape.png)] bg-cover bg-center mt-10 xxl:w-[85vw] mb-20">
-      {
-        success ? <Toaster
-          position="top-center"
-          reverseOrder={false}
-        /> : null
-      }
       <div className="rounded-lg bg-white/10 p-5 pb-10  bannerCard relative">
       <div className="bg-[url(/assets/BannerShape.png)] registerFormBG bg-cover bg-center -z-10"></div>
         <div className="text-center">
@@ -102,12 +90,12 @@ const RegisterForm = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-items-center  md:justify-items-end gap-5">
               <div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <input type="text" name="fullname" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} `} required placeholder="Full Name" onChange={e => getUserData(e)} />
-                  <input type="text" name="username" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} `} required placeholder="Username" onChange={e => getUserData(e)} />
-                  <input type="password" name="password" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} `} required placeholder="Password" onChange={e => getUserData(e)} />
+                  <input type="text" name="fullname" className={`${ "sp-inpDark"} `} required placeholder="Full Name" onChange={e => getUserData(e)} />
+                  <input type="text" name="username" className={`${ "sp-inpDark"} `} required placeholder="Username" onChange={e => getUserData(e)} />
+                  <input type="password" name="password" className={`${"sp-inpDark"} `} required placeholder="Password" onChange={e => getUserData(e)} />
                   <div className="relative">
                     <p className={`sp-ques-show ${show ? "hidden" : ""}`}>Copy URL From Any Social or Leave Blank </p>
-                    <input type="text" name="profile_picture_url" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} max-w-full `} placeholder="Profile Picture URL" onChange={e => getUserData(e)} />
+                    <input type="text" name="profile_picture_url" className={`${ "sp-inpDark"} max-w-full `} placeholder="Profile Picture URL" onChange={e => getUserData(e)} />
                     <span className="sp-ques select-none cursor-pointer"
                       onClick={showToolTip}
                     >?</span>
@@ -116,16 +104,15 @@ const RegisterForm = () => {
                 <div className="mt-6">
                   <h2 className="text-xl font-semibold text-left mb-3">Social Links:</h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <input type="text" name="github" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} `} placeholder="GitHub" onChange={e => getUserData(e)} />
-                    <input type="text" name="twitter" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} `} placeholder="Twitter" onChange={e => getUserData(e)} />
-                    <input type="text" name="instagram" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} `} placeholder="Instagram" onChange={e => getUserData(e)} />
-                    <input type="text" name="facebook" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} `} placeholder="Facebook" onChange={e => getUserData(e)} />
-                    <input type="text" name="linkedin" className={`${isDarkTheme ? "sp-inpLight" : "sp-inpDark"} `} placeholder="LinkedIn" onChange={e => getUserData(e)} />
+                    <input type="text" name="github" className={`${ "sp-inpDark"} `} placeholder="GitHub" onChange={e => getUserData(e)} />
+                    <input type="text" name="instagram" className={`${ "sp-inpDark"} `} placeholder="Instagram" onChange={e => getUserData(e)} />
+                    <input type="text" name="facebook" className={`${ "sp-inpDark"} `} placeholder="Facebook" onChange={e => getUserData(e)} />
+                    <input type="text" name="linkedin" className={`${ "sp-inpDark"} `} placeholder="LinkedIn" onChange={e => getUserData(e)} />
                   </div>
                 </div>
               </div>
               <div className="md:w-2/3">
-                <div className={`overflow-hidden  rounded-xl ${!isDarkTheme ? "cardbg" : "cardbgDark"}`}>
+                <div className={`overflow-hidden  rounded-xl cardbgDark`}>
                   <img className="h-60 object-cover w-full" src={user.profile_picture_url ? user.profile_picture_url : "/assets/NoImage.png"} alt="" />
                   <div className="px-3 pb-6">
                     <div className="flex justify-between my-5">
